@@ -34,4 +34,4 @@ Add and remove your tasks 🎇
 
 <img src="./utils/tasks.jpg" width="600px"/>
 
-<p align="center">**Espero que tenha gostado 🎈🎁**</p>
+<p align="center"><strong>Espero que tenha gostado 🎈🎁</strong></p>
