@@ -1,26 +1,20 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { MainContainer } from "./styles";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 import {
-  useTheme,
   createMuiTheme,
-  ThemeProvider,
 } from "@material-ui/core/styles";
-import { green, orange } from "@material-ui/core/colors";
+import {  orange } from "@material-ui/core/colors";
 
+import remove from '../../global/assets/remove.svg';
 import add from "../../global/assets/add.svg";
 
 import {
   Fab,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  Button,
-  TextField,
-  DialogActions,
-  DialogContentText,
+  IconButton,
 } from "@material-ui/core";
+import Feed from "../../components/Feed/Feed";
+import { Link } from "react-router-dom";
 
 const schens = createMuiTheme({
   palette: {
@@ -32,58 +26,58 @@ const schens = createMuiTheme({
 
 export default function Main() {
   const [open, setOpen] = useState(false);
+  const [note, setNote] = useState("");
+  const [data, setData] = useState([]);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  useEffect(() => {
+    var strofy = localStorage.getItem("@welcome-kentaurus/data");
+    if (strofy != null) {
+      var todo = JSON.parse(strofy);
+      setData(todo);
+    }
+  }, data);
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  const destroy = (e) => {
+    
+  }
   return (
     <MainContainer>
       <main>
         <h1>My Tasks</h1>
-        <div>{}</div>
       </main>
-      <a>
-        <Fab onClick={handleClickOpen}>
+      <section>
+        {data.map((i) => {
+          return (
+            <div>
+              <p key={i}>{i}</p>
+              <IconButton key={i} onClick={(event) => { 
+                  var todos = localStorage.getItem("@welcome-kentaurus/data");
+                  var newtodo = [];
+                  newtodo = JSON.parse(todos);
+                  console.log(newtodo);
+                  console.log(i);
+                  var cleartodo = [];
+                  for (const s in newtodo) {
+                    if(newtodo[s] == i){
+                      
+                    }else{
+                      cleartodo.push(newtodo[s]);
+                    }
+                  }
+                  localStorage.setItem("@welcome-kentaurus/data", JSON.stringify(cleartodo));
+                  setData(cleartodo);
+               }}>
+                <img src={remove}></img>
+              </IconButton>
+            </div>
+          )
+        })}
+      </section>
+      <Link to="/add">
+        <Fab>
           <img src={add}></img>
         </Fab>
-      </a>
-      <ThemeProvider theme={schens}>
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="form-dialog-title"
-          fullScreen={fullScreen}
-        >
-          <DialogTitle id="form-dialog-title">Create</DialogTitle>
-          <DialogContent>
-            <DialogContentText style={{ fontFamily: "" }}>
-              Describe your task and add it to the panel
-            </DialogContentText>
-            <TextField
-              autoFocus
-              margin="dense"
-              id="name"
-              label=""
-              type="email"
-              fullWidth
-            />
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary">
-              Cancel
-            </Button>
-            <Button onClick={handleClose} color="primary" variant='contained'>
-              Add
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </ThemeProvider>
+      </Link>
     </MainContainer>
   );
 }

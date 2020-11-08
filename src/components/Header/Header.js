@@ -30,13 +30,12 @@ export default function Header () {
           <ListItem button>File</ListItem>
         </Link>
         <Menu
-          id="simple-menu"
           anchorEl={anchor}
           keepMounted
           open={Boolean(anchor)}
           onClose={handleCloseAnchor}
         >
-          <MenuItem onClick={handleCloseAnchor} style={{ fontFamily: 'Inter, sans-serif' ,fontSize: 12, border: 1}}>Close</MenuItem>
+          <MenuItem onClick={() => { handleCloseAnchor(); window.close()}} style={{ fontFamily: 'Inter, sans-serif' ,fontSize: 12, border: 1}}>Close</MenuItem>
         </Menu>
         <Link to="#">
           <ListItem button>Settings</ListItem>
