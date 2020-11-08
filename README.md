@@ -1,4 +1,4 @@
-<img src='./utils/overlay.png' width='50px' align='center'>
+<p align="center"><img src='./utils/overlay.png' width='200px' align='center'></p>
 <h1 align="center">Protoes</h1> 
 
 ♦ Protoes é um simples e bonito aplicativo desktop para controle de tarefas.
@@ -11,27 +11,26 @@ Para rodar ele em sua máquina é necessário ter o Node,js instalado.
 Instale todas as dependências do projetos executando o comando `npm install` no seu terminal, no caminho do projeto.
 
 Execute o comando `npm start`, e feche a possível aba do seu navegador que será aberta automaticamente. E em um outro terminal execute `npm dev`.
-É necessário que os dois scripts estarem sendo executados para a aplicação estar funcionando.
+É necessário que os dois scripts estejam sendo executados, para a aplicação estar funcionando.
 
 ## Guide 🎈
 
-1 - 🎇Landing Page 
+Landing Page 🎇
 
 <img src='./utils/landing.jpg' width='600px'/>
 
-2 - 🎇Main Page
+Main Page 🎇
 
 <img src="./utils/overview.jpg" width="600px"/>
 
-4 - 🎇Visualização das Tarevas
+Visualização das Tarevas 🎇
 
 <img src="./utils/tasks.jpg" width="600px"/>
 
-
-3 - 🎇Menu
+Menu 🎇
 
 <img src="./utils/menu.jpg" width="600px"/>
 
-4 - 🎇Adicione suas tarefas
+Adicione suas tarefas 🎇
 
 <img src="./utils/tasks.jpg" width="600px"/>
